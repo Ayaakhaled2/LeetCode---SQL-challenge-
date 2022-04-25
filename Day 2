@@ -1,0 +1,23 @@
+1) https://leetcode.com/problems/calculate-special-bonus/
+/* Write your T-SQL query statement below */
+SELECT employee_id ,
+CASE WHEN ((employee_id % 2) <> 0) and left(name,1) <> 'M' THEN salary ELSE 0 END AS bonus
+FROM Employees
+
+============================================================================================
+
+2) https://leetcode.com/problems/delete-duplicate-emails/submissions/
+
+ DELETE FROM Person 
+ WHERE id not in (SELECT MIN(id)
+ FROM Person
+ GROUP BY email)
+ 
+ ============================================================================================
+3) https://leetcode.com/problems/swap-salary/ 
+Write an SQL query to swap all 'f' and 'm' values (i.e., change all 'f' values to 'm' and vice versa) with a single update statement and no intermediate temporary tables.
+Note that you must write a single update statement, do not write any select statement
+
+/* Write your T-SQL query statement below */
+UPDATE Salary
+SET sex = CASE WHEN sex = 'f' THEN 'm' WHEN sex = 'm' THEN 'f' END
